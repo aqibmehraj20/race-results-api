@@ -20,5 +20,11 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
+    doctrine.orm.entity_manager:
+        class: Doctrine\ORM\EntityManagerInterface
+        factory: [ '@doctrine', 'getManager' ]
+    App\Controller\RaceResultController:
+        autowire: true
+        tags: ['controller.service_arguments']
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
